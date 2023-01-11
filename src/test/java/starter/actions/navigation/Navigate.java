@@ -1,4 +1,4 @@
-package starter.tasks.navigation;
+package starter.actions.navigation;
 
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.actions.Open;

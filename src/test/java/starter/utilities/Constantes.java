@@ -6,4 +6,6 @@ public class Constantes {
 
     public static String MENSAJE_LOG_IN_CORRECTO = "You logged into a secure area!";
 
+    public static String MENSAJE_LOG_IN_INCORRECTO = "Your username is invalid!";
+
 }
