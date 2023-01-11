@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         features = "src/test/resources/features",
-        tags = "@Login"
+        tags = "@ValidLogin"
 )
 public class CucumberTestSuite {}

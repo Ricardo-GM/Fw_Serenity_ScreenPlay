@@ -1,14 +1,9 @@
 @run
 Feature: Login
 
-  @Login
-  Scenario Outline: Scenario Outline: As a user <username>, I can log into the member's area
+  @ValidLogin
+  Scenario: Scenario Outline: As a user, I can log into the member's area
 
-    Given I am on the login page
-    When I login with <username> and <password>
-    Then I should see a flash message saying <message>
-
-    Examples:
-      | username | password             | message                        |
-      | tomsmith | SuperSecretPassword! | You logged into a secure area! |
-      | foobar   | barfoo               | Your username is invalid!      |
+    Given Juan is on the login page
+    When Juan logs in with valid credentials
+    Then Juan should see a successful login message

@@ -1,15 +1,11 @@
 package starter.screen;
 
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 public class LoginPage extends PageObject {
-    protected Logger logger = LoggerFactory.getLogger(LoginPage.class);
 
     @FindBy(id = "username")
     private WebElement inputUsername;
@@ -20,7 +16,10 @@ public class LoginPage extends PageObject {
     @FindBy(xpath = "//*[@id='login']/button")
     private WebElement btnSubmit;
 
-    public WebElement getUsernameInput() {
+    @FindBy(xpath = "//*[@class='example']/h2")
+    private WebElement titleForm;
+
+    public  WebElement getUsernameInput() {
         return inputUsername;
     }
 
@@ -31,6 +30,8 @@ public class LoginPage extends PageObject {
     public WebElement getSubmitButton() {
         return btnSubmit;
     }
+
+    public String getTitleForm() {return titleForm.getText(); }
 
 
 

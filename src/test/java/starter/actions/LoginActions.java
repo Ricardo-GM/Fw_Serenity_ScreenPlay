@@ -1,21 +1,31 @@
 package starter.actions;
 
 import net.serenitybdd.core.steps.UIInteractions;
+import net.serenitybdd.screenplay.Performable;
+import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.ui.Button;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import starter.utilities.Constantes;
+import starter.screen.LoginPage;
+import starter.utilities.LoginUser;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.text.IsEqualCompressingWhiteSpace.equalToIgnoringWhiteSpace;
 
 public class LoginActions extends UIInteractions {
 
+    static LoginPage loginPage;
+
     protected Logger logger = LoggerFactory.getLogger(LoginActions.class);
 
-    @Step("Entrar a la página del Log In")
-    public void enterLoginPage() {
-        openUrl(Constantes.PAGINA_LOG_IN);
+    public static Performable as(LoginUser loginUser) {
+        return Task.where("{0} logs in as a " + loginUser,
+                Enter.theValue(loginUser.username).into("#username"),
+                Enter.theValue(loginUser.password).into("#password"),
+                Click.on(Button.containingText("Login")));
     }
 
 
